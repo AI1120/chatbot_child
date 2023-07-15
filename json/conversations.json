@@ -1,0 +1,27 @@
+{"timestamp": "2023-03-04 10:59:48", "message": "Bot: Hello Adam"}
+{"timestamp": "2023-03-04 10:59:48", "message": "Bot: How's it going"}
+{"timestamp": "2023-03-04 10:59:48", "message": "You: "}
+{"timestamp": "2023-03-04 11:00:08", "message": "message = input(\"You: \")"}
+{"timestamp": "2023-03-04 11:00:16", "message": "Bot: Hello Adam"}
+{"timestamp": "2023-03-04 11:00:16", "message": "Bot: How are you doing"}
+{"timestamp": "2023-03-04 11:00:16", "message": "You: "}
+{"timestamp": "2023-03-04 11:01:33", "message": "message = input(\"You: \")"}
+{"timestamp": "2023-03-04 11:01:55", "message": "Bot: Hi Adam"}
+{"timestamp": "2023-03-04 11:01:55", "message": "Bot: How are you doing"}
+{"timestamp": "2023-03-04 11:01:55", "message": "You: "}
+{"timestamp": "2023-03-04 11:03:10", "message": "message = input(\"You: \")"}
+{"timestamp": "2023-03-04 11:03:17", "message": "Bot: Hi Adam"}
+{"timestamp": "2023-03-04 11:03:17", "message": "Bot: Hi Adam"}
+{"timestamp": "2023-03-04 11:03:17", "message": "Bot: How are you?"}
+{"timestamp": "2023-03-04 11:03:17", "message": "Bot: How are you?"}
+{"timestamp": "2023-03-04 11:03:17", "message": "You: "}
+{"timestamp": "2023-03-04 11:03:17", "message": "You: "}
+{"timestamp": "2023-03-04 11:12:32", "message": "Bot: Hi Adam"}
+{"timestamp": "2023-03-04 11:12:32", "message": "Bot: How are you doing"}
+{"timestamp": "2023-03-04 11:12:32", "message": "You: "}
+{"timestamp": "2023-03-04 11:16:37", "message": "Bot: Hi Adam"}
+{"timestamp": "2023-03-04 11:16:37", "message": "Bot: How are you?"}
+{"timestamp": "2023-03-04 11:16:37", "message": "You: "}
+{"timestamp": "2023-03-04 11:18:15", "message": "message = input(\"You: \")"}
+{"timestamp": "2023-03-04 11:18:19", "message": "  File \"C:\\Users\\Avery\\PycharmProjects\\SOLChatbot2\\venv\\lib\\site-packages\\keras\\utils\\traceback_utils.py\", line 70, in error_handler\n"}
+{"timestamp": "2023-03-04 11:18:19", "message": "  File \"C:\\Users\\Avery\\PycharmProjects\\SOLChatbot2\\venv\\lib\\site-packages\\keras\\utils\\io_utils.py\", line 80, in print_msg\n"}

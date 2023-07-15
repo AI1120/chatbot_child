@@ -1,0 +1,67 @@
+{
+  "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["hello", "hi", "hey"],
+            "responses": ["Hello {name}", "Hi {name}", "Good to see you again {name}", "It's nice to see you today"],
+            "childIntents": [
+                {
+                    "tag": "greeting_A",
+                    "patterns": ["you too"],
+                    "responses": ["Thank you"],
+                    "function": "conversation_starter"
+                },
+                {
+                    "tag": "greeting_B",
+                    "patterns": ["hello", "hi", "hey", "hi there"],
+                    "responses": [],
+                    "function": "conversation_starter"
+                }
+            ]
+        },
+        {
+            "tag": "sleep_quality",
+            "patterns": ["id like to get some good sleep", "i need to go to bed early tonight", "i really need to get some sleep", "i want to get better sleep"],
+            "responses": ["Good sleep is important, do you usually get that?"],
+            "childIntents": [
+                      {
+                          "tag": "sleep_quality_A",
+                          "patterns": ["yes", "i would", "yep", "yeah"],
+                          "responses": ["I'm happy for you, what helps you do that?"]
+                      },
+                      {
+                          "tag": "sleep_quality_B",
+                          "patterns": ["no", "nah", "not really", "nope"],
+                          "responses": [],
+                          "function": "intent_jumper-sleep_up_too_late_A"
+                      }
+            ]
+        },
+
+
+        {
+            "tag": "goodbye",
+            "patterns": ["bye", "goodbye", "see you later", "catch you later"],
+            "responses": ["Goodbye, have a great day!", "See you later!", "Take care!"]
+        },
+      {
+            "tag": "goodmorning",
+            "patterns": ["good morning"],
+            "responses": ["Good morning {name}", "Good morning."],
+            "childIntents": [
+                {
+                    "tag": "goodmorning_A",
+                    "patterns": ["you too", "goodmorning to you"],
+                    "responses": ["Thank you"]
+                }
+            ]
+        },
+        {
+            "tag": "fallback",
+            "patterns": [],
+            "responses": ["I'm sorry, I don't quite understand.", "I'm not sure I follow. Can you please rephrase your question?", "Hm..."]
+        }
+
+    ]
+}
+

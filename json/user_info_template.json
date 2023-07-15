@@ -1,0 +1,11 @@
+{
+    "user_info": {
+      "name": "",
+      "age": null,
+      "location": "",
+      "mood": null,
+      "likes": [],
+      "dislikes": [],
+      "favorite_activities": []
+    }
+  }
