@@ -376,7 +376,7 @@ def chatV2(from_saved_model=True):
     # Normal chat loop
     while True:
         # Get user message
-        message = input(f"You: ")
+        message = input("You: ")
 
         clean_message = message
         # print('words::', words)
