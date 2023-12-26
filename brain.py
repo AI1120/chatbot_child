@@ -106,8 +106,7 @@ def find_most_likely_intent(message, model2, words2, labels2, intents_data2, use
                     response, last_intent = conversation_starter()
                 return response, last_intent
 
-    fallback_intent = next((intent for intent in intents_data2['intents'] if intent['tag'] == 'fallback'), None)
-    if fallback_intent:
+    if fallback_intent := next((intent for intent in intents_data2['intents'] if intent['tag'] == 'fallback'), None):
         response = random.choice(fallback_intent['responses'])
         response = replace_placeholders(response, user_info, sol_info)
         return response, last_intent
@@ -227,12 +226,10 @@ def get_child_response(clean_message, message, model, words, labels, intents_dat
         return response, last_intent
 
 def get_random_response(tag, intents_data=None, user_info=None, sol_info=None):
-    intent = search_intents(intents_data['intents'], tag)
-    if intent is None:
+    if (intent := search_intents(intents_data['intents'], tag)) is None:
         return None, None
     responses = intent['responses']
-    function_data = intent.get('function', None)
-    if function_data:
+    if function_data := intent.get('function', None):
         function_name = function_data.split('.')[-1]
         if function_name in globals():
             globals()[function_name](user_info)
@@ -314,8 +311,7 @@ def conversation_starter(clean_message=None, user_info=None):
         what_to_talk_about_starter
     ]
 
-    random_starter = random.choice(starter_list)
-    if random_starter == what_to_talk_about_starter:
+    if (random_starter := random.choice(starter_list)) == what_to_talk_about_starter:
         global topic_mode
         topic_mode = True
 
