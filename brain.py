@@ -6,8 +6,6 @@ import numpy as np
 import tensorflow as tf
 import json
 import pickle
-# import spacy
-import random
 import time
 import re
 import nltk
@@ -28,6 +26,7 @@ from sklearn.linear_model import LogisticRegression
 from collections import defaultdict
 from keras.backend import manual_variable_initialization 
 from create_model import create_model, load_data, load_data_no_children
+import secrets
 
 nlp = spacy.load("en_core_web_lg")
 
@@ -94,11 +93,11 @@ def find_most_likely_intent(message, model2, words2, labels2, intents_data2, use
                         function_response, last_intent = globals()[function_name](clean_message, user_info)
                 responses = intent['responses']
                 if function_response and responses:
-                    response = f"{random.choice(responses)} {function_response}"
+                    response = f"{secrets.choice(responses)} {function_response}"
                 elif function_response and not responses:
                     response = function_response
                 elif responses:
-                    response = random.choice(responses)
+                    response = secrets.choice(responses)
                 else:
                     response = "child: Sorry, I don't know how to respond to that."
                 response = replace_placeholders(response, user_info, sol_info)
@@ -108,7 +107,7 @@ def find_most_likely_intent(message, model2, words2, labels2, intents_data2, use
 
     fallback_intent = next((intent for intent in intents_data2['intents'] if intent['tag'] == 'fallback'), None)
     if fallback_intent:
-        response = random.choice(fallback_intent['responses'])
+        response = secrets.choice(fallback_intent['responses'])
         response = replace_placeholders(response, user_info, sol_info)
         return response, last_intent
 
@@ -193,12 +192,12 @@ def get_child_response(clean_message, message, model, words, labels, intents_dat
                         responses = intent['responses']
                         if function_response and responses:
                             function_response = function_response[0].lower() + function_response[1:]
-                            response = f"{random.choice(responses)}, {function_response}"
+                            response = f"{secrets.choice(responses)}, {function_response}"
                             response = response.replace(".,", ",").replace("!,", ",").replace("..", ".")
                         elif function_response and not responses:
                             response = function_response
                         elif responses:
-                            response = random.choice(responses)
+                            response = secrets.choice(responses)
                         else:
                             response = "child: Sorry, I don't know how to respond to that."
 
@@ -238,7 +237,7 @@ def get_random_response(tag, intents_data=None, user_info=None, sol_info=None):
             globals()[function_name](user_info)
             return None, None
     if responses:
-        response = random.choice(responses)
+        response = secrets.choice(responses)
     else:
         response = "child: Sorry, I don't know how to respond to that."
     response = replace_placeholders(response, user_info, sol_info)
@@ -269,7 +268,7 @@ def replace_placeholders(response, user_info, sol_info):
             key = key.replace(f'_rnd{n}', '')
             values = user_info.get(key, []) + sol_info.get(key, [])
             if values:
-                chosen_values = random.sample(values, min(n, len(values)))
+                chosen_values = secrets.SystemRandom().sample(values, min(n, len(values)))
                 value = ', '.join(chosen_values)
             else:
                 value = ''
@@ -314,7 +313,7 @@ def conversation_starter(clean_message=None, user_info=None):
         what_to_talk_about_starter
     ]
 
-    random_starter = random.choice(starter_list)
+    random_starter = secrets.choice(starter_list)
     if random_starter == what_to_talk_about_starter:
         global topic_mode
         topic_mode = True
